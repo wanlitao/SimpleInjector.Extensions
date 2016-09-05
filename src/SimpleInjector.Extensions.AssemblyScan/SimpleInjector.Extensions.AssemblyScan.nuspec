@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>FCP.SimpleInjector.Extensions.AssemblyScan</id>
+    <id>FCP.SimpleInjector.AssemblyScan</id>
     <version>$version$</version>
     <title>$title$</title>
     <authors>$author$</authors>
