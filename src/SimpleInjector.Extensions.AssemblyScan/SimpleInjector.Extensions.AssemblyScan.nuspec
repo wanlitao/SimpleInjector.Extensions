@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>FCP.SimpleInjector.AssemblyScan</id>
+    <id>FCP.SimpleInjector.Extensions.AssemblyScan</id>
     <version>$version$</version>
-    <title>$title$</title>
+    <title>FCP.SimpleInjector.Extensions.AssemblyScan</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
