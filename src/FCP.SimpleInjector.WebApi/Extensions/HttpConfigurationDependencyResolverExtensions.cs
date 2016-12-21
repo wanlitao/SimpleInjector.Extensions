@@ -22,8 +22,8 @@ namespace FCP.SimpleInjector.WebApi
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
-            container.RegisterCompositionRoots(compositionSearchPattern);
             container.ResolveUnregisteredTypeByScanDefineAssembly(Lifestyle.Scoped);
+            container.RegisterCompositionRoots(compositionSearchPattern);            
 
             container.RegisterWebApiControllers(configuration);
 
