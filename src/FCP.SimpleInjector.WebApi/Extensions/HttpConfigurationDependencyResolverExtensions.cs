@@ -1,5 +1,6 @@
 ﻿using SimpleInjector;
 using SimpleInjector.Extensions.AssemblyScan;
+using SimpleInjector.Extensions.LifetimeScoping;
 using SimpleInjector.Integration.WebApi;
 using System;
 using System.Web.Http;
@@ -20,7 +21,12 @@ namespace FCP.SimpleInjector.WebApi
                 throw new ArgumentNullException(nameof(configuration));            
 
             var container = new Container();
-            container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
+
+            //support dependency resolver outside Web Api Request Context
+            var webApiLifestyle = new WebApiRequestLifestyle();
+            container.Options.DefaultScopedLifestyle = Lifestyle.CreateHybrid(
+                () => webApiLifestyle.GetCurrentScope(container) != null,
+                webApiLifestyle, new LifetimeScopeLifestyle());
 
             container.ResolveUnregisteredTypeByScanDefineAssembly(Lifestyle.Scoped);
             container.RegisterCompositionRoots(compositionSearchPattern);            
